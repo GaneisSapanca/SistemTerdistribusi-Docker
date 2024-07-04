@@ -1,0 +1,15 @@
+version: '26.1.4'
+services:
+  tugas:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./tugas:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php
+  php:
+    build: .
+    volumes:
+      - ./tugas:/var/www/html
